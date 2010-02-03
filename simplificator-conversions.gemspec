@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{simplificator-conversions}
-  s.version = "0.3.0"
+  s.version = "0.3.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["simplificator"]
-  s.date = %q{2009-10-28}
+  s.date = %q{2010-02-03}
   s.description = %q{adds conversion methods to numbers}
   s.email = %q{pascal.betz@simplificator.com}
   s.extra_rdoc_files = [
@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/simplificator-conversions.rb",
+     "lib/simplificator-conversions.rb",
+     "simplificator-conversions.gemspec",
      "test/conversions_test.rb",
      "test/test_helper.rb"
   ]

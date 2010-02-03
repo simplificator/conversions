@@ -1,6 +1,4 @@
 module UnitConversions
-  UNITS = ['kg', 'g', 't', 'mm2', 'm2']
-  CONVERT_TO_PATTERN = /(#{UNITS.join('|')})_to_(#{UNITS.join('|')})/
   CONVERSIONS = {
     'kg' => {
       't' => lambda() {|kg| kg / 1000.0 },
@@ -21,6 +19,8 @@ module UnitConversions
       'm2' => lambda() {|mm2| mm2 / (1000 * 1000.0)},
     },
   }
+  UNITS = CONVERSIONS.keys
+  CONVERT_TO_PATTERN = /(#{UNITS.join('|')})_to_(#{UNITS.join('|')})/
   
   
   def method_missing_with_unit_conversions(m, *args)
@@ -33,13 +33,7 @@ module UnitConversions
   
 end
 
-class Fixnum
-  include UnitConversions
-  alias :method_missing_without_unit_conversions :method_missing
-  alias :method_missing :method_missing_with_unit_conversions
-end
-
-class Float
+class Numeric
   include UnitConversions
   alias :method_missing_without_unit_conversions :method_missing
   alias :method_missing :method_missing_with_unit_conversions
